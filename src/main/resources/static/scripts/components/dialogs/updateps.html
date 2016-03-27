@@ -1,0 +1,121 @@
+<div class="modal-header">
+    <h4 class="modal-title"><span class="glyphicon glyphicon-star"></span> Search By Image</h4>
+</div>
+<div class="row" style="margin: 10px">
+    <div class="col-md-12">
+        <div class="form-group">
+            <div ng-show="imageCropStep == 1">
+                <br/>
+                <input type="file" name="fileInput" id="fileInput"
+                       onchange="angular.element(this).scope().fileChanged(event)"/>
+            </div>
+            <div ng-show="imageCropStep == 2">
+
+                <image-crop
+                        data-height="200"
+                        data-width="150"
+                        data-shape="square"
+                        data-step="imageCropStep"
+                        src="imgSrc"
+                        data-result="result"
+                        data-result-blob="resultBlob"
+                        crop="initCrop"
+                        padding="250"
+                        max-size="1024"
+                        ></image-crop>
+            </div>
+            <div ng-show="imageCropStep == 2">
+                <br/>
+                <button ng-click="initCrop = true">Crop</button>
+            </div>
+            <div ng-show="imageCropStep == 3">
+                <img ng-src="{{result}}"/>
+
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="dname" class="col-sm-2 control-label">Name</label>
+
+                        <div class="col-sm-10">
+                            <input type="text" ng-model="dform.name" class="form-control" id="dname" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dgender" class="col-sm-2 control-label">Gender</label>
+                        <div class="col-sm-10">
+                            <select ng-init="dform.gender='Male'" ng-model="dform.gender" class="form-control"
+                                    id="dgender">
+                                <option name="Male" value="Male">Male</option>
+                                <option name="Female" value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                <div class="form-group">
+                        <label for="dstate" class="col-sm-2 control-label">State</label>
+                        <div class="col-sm-10">
+                            <select ng-init="dform.state='Found'" ng-model="dform.state" class="form-control"
+                                    id="dstate">
+                                <option name="Found" value="Found">Found</option>
+                                <option name="Lost" value="Lost">Lost</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dage" class="col-sm-2 control-label">Age</label>
+                        <div class="col-sm-10">
+                            <input  ng-init="dform.age=10" type="number" min="0" ng-model="dform.age" class="form-control" id="dage" placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="moreinfo" class="col-sm-2 control-label">More Info</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control"  ng-model="dform.moreInfo" rows="3"id="moreinfo" placeholder="More  Info.........."></textarea>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="save()">Done</button>
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
+
+<style>
+    /* Styles for this demo page */
+    body {
+        font-size: 12px;
+        font-family: Helvetica, Arial;
+        background: white;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    a {
+        text-decoration: underline;
+        color: blue;
+        cursor: pointer;
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        width: 80%;
+        background: rgba(0, 0, 0, .3);
+        margin: 40px auto;
+    }
+
+    .result-datauri {
+        width: 300px;
+        height: 100px;
+        font-size: 11px;
+        line-height: 15px;
+        padding: 5px;
+        border: 1px solid black;
+        clear: both;
+        display: block;
+        margin: 20px auto;
+    }
+</style>

@@ -1,0 +1,24 @@
+<div class="services">
+    <div class="container">
+        <div class="services-bottom">
+            <div class="services-one">
+                <div class="col-md-9 services-left" ng-repeat=" c in child">
+                    <div class="view fifth-effect">
+                        <a ui-sref="child({id:c.child.id})" title="Full Image">
+                            <img ng-src="{{c.child.image}}" alt=""/>
+                        </a>
+
+                        <div class="mask"></div>
+                    </div>
+                    <div class="s-btm">
+                        <h4>Namev:{{c.suggested.name}} </h4>
+                        <h4>Age:{{c.suggested.age}}</h4>
+                        <h4>Confidence:{{c.confidence}}</h4>
+                        <p>{{c.suggested.moreInfo}}</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

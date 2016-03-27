@@ -1,0 +1,155 @@
+<html>
+<head>
+    <title>revolovex</title>
+    <link rel="stylesheet" type="text/css" href="assest/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assest/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assest/css/image-crop-styles.css">
+    <link rel="stylesheet" type="text/css" href="assest/css/bootstrap-social.css">
+    <script src="assest/js/jquery-1.10.2.min.js"></script>
+    <script src="assest/js/bootstrap.min.js"></script>
+    <script src="assest/js/responsiveslides.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#slider4").responsiveSlides({
+                auto: true,
+                pager: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+</head>
+<body ng-app="revolovexApp">
+<div class="header" id="home">
+    <div class="container">
+        <div class="header-main">
+            <div class="col-md-6 header-left">
+                <a><h1>Tayeh</h1></a>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 header-right">
+                    <ul>
+                        <li><a href="#"><span class="fb"></span></a></li>
+                        <li><a href="#"><span class="twitter"></span></a></li>
+                        <li><a href="#"><span class="google"></span></a></li>
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bnr">
+        <div id="top" class="callbacks_container">
+            <ul class="rslides" id="slider4">
+                <li>
+                    <div class="banner1">
+                    </div>
+                </li>
+                <li>
+                    <div class="banner2">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div ui-view="navbar" ng-cloak=""></div>
+    <div ui-view="content"></div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="col-md-6 footer-left">
+                    <h3>Subscribe to Our Android App</h3>
+
+                    <div class="letter">
+                        <form>
+                            <input type="text" value="Enter Your Email" onfocus="this.value = '';"
+                                   onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-left">
+                    <h3>Important Links</h3>
+                    <ul>
+                        <li><a href="#">Phasellus at lacus ultrices</a></li>
+
+                        <li><a href="#">Praesent laoreet quam nec purus</a></li>
+                        <li><a href="#">Suspendisse id tempus dolor</a></li>
+
+                        <li><a href="#">Sed eu erat vel ipsum fermentum</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-left">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+
+                        <li><a href="found child.html">Found Childs</a></li>
+                        <li><a href="lost child.html">Lost Childs</a></li>
+
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="footer-text">
+                <div class="col-md-6 ftr-left">
+                    <h4><a href="index.html">Tayeh</a></h4>
+                </div>
+                <div class="col-md-6 ftr-right">
+                    <p>Â© 2015 Adoption. All Rights Reserved | Graduation Project </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover"
+                                                                                 style="opacity: 1;"> </span></a>
+
+    </div>
+</div>
+
+<script src="assest/js/angular.js"></script>
+<script src="assest/js/angular-ui-router.js"></script>
+<script src="assest/js/angular-resource.js"></script>
+<script src="assest/js/angular-cookies.js"></script>
+<script src="assest/js/angular-local-storage.js"></script>
+<script src="assest/js/angular-cache-buster.js"></script>
+<script src="assest/js/angular-sanitize.js"></script>
+<script src="assest/js/ui-bootstrap-tpls.js"></script>
+<script src="assest/js/dialogs.js"></script>
+<script src="assest/js/image-crop.js"></script>
+<script src="assest/js/angular-base64.js"></script>
+
+<script src="scripts/app/app.js"></script>
+<script src="scripts/components/auth/auth.service.js"></script>
+<script src="scripts/components/auth/principal.service.js"></script>
+<script src="scripts/components/auth/authority.directive.js"></script>
+<script src="scripts/components/auth/account.service.js"></script>
+<script src="scripts/components/navbar/navbar.controller.js"></script>
+<script src="scripts/app/account/account.js"></script>
+<script src="scripts/app/account/login/login.js"></script>
+<script src="scripts/app/account/login/login.controller.js"></script>
+<script src="scripts/app/account/yourimage/yourimage.js"></script>
+<script src="scripts/app/account/yourimage/yourimage.controller.js"></script>
+<script src="scripts/app/account/image/image.js"></script>
+<script src="scripts/app/account/image/image.controller.js"></script>
+<script src="scripts/app/account/logout/logout.js"></script>
+<script src="scripts/app/account/logout/logout.controller.js"></script>
+<script src="scripts/app/error/error.js"></script>
+<script src="scripts/app/main/main.js"></script>
+<script src="scripts/app/main/main.controller.js"></script>
+<script src="scripts/components/auth/auth.session.service.js"></script>
+</body>
+
+</html>

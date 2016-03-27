@@ -1,0 +1,83 @@
+<div class="header-bottom">
+    <div class="fixed-header">
+        <div class="container" ng-switch="isAuthenticated()">
+            <div class="top-menu">
+                <span class="menu"><img src="../../../assest/images/menu-icon.png" alt=""/></span>
+                <ul>
+                    <li>
+                        <a ui-sref="home" ng-class="{active: $state.includes('home')}"
+                           class="hvr-bounce-to-right">Home</a>
+                    </li>
+                    <li>
+                        <a ui-sref="about" ng-class="{active: $state.includes('about')}"
+                           class="hvr-bounce-to-right">About</a>
+                    </li>
+                    <li>
+                        <a ui-sref="contact" ng-class="{active: $state.includes('contact')}"
+                           class="hvr-bounce-to-right">Contact</a></li>
+                    <li>
+                        <a ui-sref="login" ng-class="{active: $state.includes('login')}" ng-switch-when="false"
+                           class="hvr-bounce-to-right">login</a>
+                    </li>
+                    <li>
+                        <a ui-sref="yourimage" ng-class="{active: $state.includes('yourimage')}" ng-switch-when="true"
+                           class="hvr-bounce-to-right">Your Image</a>
+                    </li>
+                    <li>
+                </ul>
+
+            </div>
+            <div class="pull-right" ng-switch-when="true">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown user hidden-xs">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="">
+                            <img class="circle" style="margin:-18px; " ng-src="{{account.image}}">
+                        </a>
+                        <ul class="dropdown-menu" style="margin-left: -20px">
+                            <li>
+                                <a ui-sref="profile">
+                                    <i class="fa fa-home"></i>Profile
+                                </a>
+                                <a href="" ng-click="logout()">
+                                    <i class="fa fa-sign-out"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    jQuery(document).ready(function ($) {
+        $(".scroll").click(function (event) {
+            event.preventDefault();
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+        });
+    });
+    $(document).ready(function () {
+        var navoffeset = $(".header-bottom").offset().top;
+        $(window).scroll(function () {
+            var scrollpos = $(window).scrollTop();
+            if (scrollpos >= navoffeset) {
+                $(".header-bottom").addClass("fixed");
+            } else {
+                $(".header-bottom").removeClass("fixed");
+            }
+        });
+    });
+</script>
+<style>
+    .circle {
+        display: block;
+        width: 68px;
+        height: 68px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-border-radius: 99em;
+        -moz-border-radius: 99em;
+        border-radius: 99em;
+        box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
+    }
+</style>

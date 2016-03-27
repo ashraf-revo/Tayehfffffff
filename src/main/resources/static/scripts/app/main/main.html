@@ -1,0 +1,138 @@
+<div class="services">
+    <div class="container">
+        <div class="bs-example" data-example-id="basic-forms">
+
+            <div>
+                <div class="row">
+                    <div class="form-group col-md-2">
+                        <label>
+                            <input ng-init="bname=true" type="checkbox" ng-model="bname"> By Name
+                        </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>
+                            <input ng-init="name=true" type="checkbox" ng-model="bage"> By Age
+                        </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>
+                            <input ng-init="name=true" type="checkbox" ng-model="bgender"> By Gender
+                        </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>
+                            <input ng-init="name=true" type="checkbox" ng-model="bdate"> By Date
+                        </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>
+                            <input ng-init="name=true" type="checkbox" ng-model="bstate"> By State
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <form class="form-horizontal">
+                <div class="form-group" ng-show="bname">
+                    <label for="name" class="col-sm-2 control-label">Name</label>
+
+                    <div class="col-sm-10">
+                        <input ng-model="form.name" type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                </div>
+                <div class="form-group" ng-show="bage">
+                    <label for="age1" class="col-sm-2 control-label">Age1</label>
+
+                    <div class="col-sm-4">
+                        <input ng-model="form.age1" type="number" min="0" class="form-control" id="age1"
+                               placeholder="Age">
+                    </div>
+                    <label for="age2" class="col-sm-1 control-label">Age2</label>
+
+                    <div class="col-sm-5">
+                        <input ng-model="form.age2" type="number" min="0" class="form-control" id="age2"
+                               placeholder="Age">
+                    </div>
+                </div>
+                <div class="form-group" ng-show="bgender">
+                    <label for="gender" class="col-sm-2 control-label">Gender</label>
+
+                    <div class="col-sm-10">
+                        <select ng-init="form.gender='Male'" ng-model="form.gender" class="form-control" id="gender">
+                            <option name="Male" value="Male">Male</option>
+                            <option name="FeMale" value="FeMale">FeMale</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="bdate">
+                    <label for="date1" class="col-sm-2 control-label">Date1</label>
+
+                    <div class="col-sm-4">
+                        <input ng-model="form.date1" type="date" class="form-control" id="date1" placeholder="Date">
+                    </div>
+                    <label for="date2" class="col-sm-1 control-label">Date2</label>
+
+                    <div class="col-sm-5">
+                        <input ng-model="form.date2" type="date" class="form-control" id="date2" placeholder="Date">
+                    </div>
+                </div>
+                <div class="form-group" ng-show="bstate">
+                    <label for="state" class="col-sm-2 control-label">State</label>
+
+                    <div class="col-sm-10">
+                        <select ng-init="form.state='Found'" ng-model="form.state" class="form-control" id="state">
+                            <option name="Found" value="Found">Found</option>
+                            <option name="Lost" value="Lost">Lost</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="row  col-sm-10 col-sm-offset-2">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2">
+                                <button type="submit" ng-click="search()" class="btn btn-default">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" ng-show="isAuthenticated()">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2">
+                                <button class="btn btn-danger" ng-click="launch()">Search Image</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+        <div class="services-bottom">
+            <div class="services-one">
+                <div class="col-md-9 services-left" ng-repeat=" c in child">
+                    <div class="view fifth-effect">
+                        <a ui-sref="child({id:c.id})" title="Full Image">
+                            <img ng-src="{{c.image}}" alt=""/>
+                        </a>
+
+                        <div class="mask"></div>
+                    </div>
+                    <div class="s-btm">
+                        <h4>Name:{{c.name}} </h4>
+                        <h4>Age:{{c.age}}</h4>
+                        <h4>Place:{{c.addresses.locationName}}</h4>
+
+                        <p>{{c.moreInfo}}</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-6">
+                    <button type="submit" ng-click="load()" class="btn btn-info">Load More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

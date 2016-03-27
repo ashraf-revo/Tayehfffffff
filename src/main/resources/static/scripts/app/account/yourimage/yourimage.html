@@ -1,0 +1,20 @@
+<div class="services">
+    <div class="container">
+        <div class="form-group">
+            <div class="col-md-9 services-left" ng-repeat=" c in imageExist">
+                <div class="view fifth-effect">
+                    <a ng-click="cancel()" ui-sref="image({id:c.id})" title="Full Image">
+                        <img ng-src="{{c.image}}" alt=""/>
+                    </a>
+
+                    <div class="mask"></div>
+                </div>
+                <div class="s-btm">
+                    <h4>Name:{{c.name}} </h4>
+                    <h4>Age:{{c.age}}</h4>
+                    <p>{{c.moreInfo}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
